@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+      
+  width:50px;
+}
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem;
+}
+  .texts{
+  font-size:8px}
