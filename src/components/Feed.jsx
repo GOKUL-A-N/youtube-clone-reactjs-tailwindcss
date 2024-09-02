@@ -17,7 +17,7 @@ const Feed = () => {
 
     const upload = async() => {
         try{
-            const {data} = await axios.request(options);
+            let {data} = await axios.request(options);
             setFeeds(data.data);
             console.log(feeds);
         }catch (error) {
@@ -29,26 +29,31 @@ const Feed = () => {
         upload()
     },[]);
 
+    console.log(feeds);
+    
 
   return (
-    <div className='h-full w-[100vw] flex flex-row justify-between gap-10 p-20 flex-wrap'>
-        {
-            feeds.map((feed,index) =>{
-                return (
-                    <FeedCard
+    <div className='h-full w-[100vw] flex flex-row justify-between gap-10 p-20 flex-wrap '>
+        {feeds.length !== 0 && (
+             feeds.map((feed,index) =>{
+                if (feed.thumbnail) {
+                    return (
+                      <FeedCard
                         key={index}
                         title={feed.title}
                         channelTitle={feed.channelTitle}
                         publishedTimeText={feed.publishedTimeText}
                         lengthText={feed.lengthText}
-                        // thumbnail={feed.thumbnail}
-
-                    />
-                )
+                        thumbnail={feed.thumbnail[0].url}
+                      />
+                    );
+                  } else {
+                    return null; // Or render a placeholder
+                  }
             }
             
-            )
-        }
+            )   
+        )}
     </div>
 
   )

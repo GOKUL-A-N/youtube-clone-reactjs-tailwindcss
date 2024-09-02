@@ -4,7 +4,7 @@ const FeedCard = (props) => {
   return (
     <div className='cursor-pointer'>
         <div className='h-[100px] w-[200px] relative'>
-            <img src="https://marketplace.canva.com/EAEqfS4X0Xw/1/0/1600w/canva-most-attractive-youtube-thumbnail-wK95f3XNRaM.jpg" className='w-full h-full' alt="" />
+            <img src={props.thumbnail} className='w-full h-full' alt="" />
             <p className='bg-black text-white absolute bottom-1 right-2 text-[13px] rounded-sm'>{props.lengthText}</p>
         </div>
         <div className='h-[70px] w-[200px] flex flex-row pt-2'>
